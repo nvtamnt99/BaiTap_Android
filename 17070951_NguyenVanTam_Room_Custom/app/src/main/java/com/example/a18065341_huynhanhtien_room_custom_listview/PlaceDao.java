@@ -1,0 +1,30 @@
+package com.example.a18065341_huynhanhtien_room_custom_listview;
+
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+@Dao
+public interface PlaceDao {
+
+    @Query("SELECT * FROM place")
+    List<Place> getAll();
+
+    @Query("SELECT * FROM place WHERE id = :placeId ")
+    Place getById(Integer placeId);
+
+    @Insert
+    void add(Place place);
+
+    @Update
+    void update(Place place);
+
+    @Delete
+    void delete(Place place);
+
+
+}
